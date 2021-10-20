@@ -1,13 +1,16 @@
-import React from 'react'
-import MoviesGrid from '../components/MoviesGrid'
+
+import MoviesGrid from "../components/MoviesGrid";
+import Search from "../components/Search";
+
 
 const Home = () => {
-    return (
-      
-        <MoviesGrid />
-     
-    
-    )
-}
+  
+  return (
+    <>
+        <Search/>    
+      <MoviesGrid />
+    </>
+  );
+};
 
-export default Home
+export default Home;

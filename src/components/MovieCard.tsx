@@ -12,7 +12,7 @@ const Container = styled.div`
   max-width: 300px;
   background-color: #e5ebf0;
   cursor: pointer;
-  :hover{
+  :hover img{
       opacity: .8;
   }
 `;
