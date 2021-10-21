@@ -22,7 +22,7 @@ box-shadow: 0px 1px 1px #080c0e;
 `
 const Search = () => {
   const [keyword, setKeyword] = useState<string>("");
-  console.log('click');
+  
   
   const history = useHistory();
   const query=useQuery()

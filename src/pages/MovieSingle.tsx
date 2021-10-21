@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
 import getMovies from "../services/getMovies";
 import { InfoMovieProps } from "../types-interfaces/infoMovieInterface";
 
@@ -47,37 +48,39 @@ const MovieSingle = () => {
   const [movie, setMovie] = useState<InfoMovieProps>();
   const { id } = useParams<MovieSingleParams>();
   useEffect(() => {
-    getMovies(`movie/${id}`)
-      .then(setMovie);
+    getMovies(`movie/${id}`).then(setMovie);
   }, [id]);
 
   return !movie ? (
-    <Loader/>
+    <Loader />
   ) : (
-    <Container>
-      <img
-        width={500}
-        height={500}
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-        style={{ borderRadius: "8px", height: "auto" }}
-      />
-      <ContainerInfo>
-        <h2>
-          <strong>Title: </strong>
-          {movie.title}
-        </h2>
-        <p>
-          <strong>Description: </strong>
-          {movie.overview}
-        </p>
-        <MenuGenero>
-          {movie.genres.map((genero) => (
-            <li key={genero.id}>{genero.name}</li>
-          ))}
-        </MenuGenero>
-      </ContainerInfo>
-    </Container>
+    <>
+    <Search/>
+      <Container>
+        <img
+          width={500}
+          height={500}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          style={{ borderRadius: "8px", height: "auto" }}
+        />
+        <ContainerInfo>
+          <h2>
+            <strong>Title: </strong>
+            {movie.title}
+          </h2>
+          <p>
+            <strong>Description: </strong>
+            {movie.overview}
+          </p>
+          <MenuGenero>
+            {movie.genres.map((genero) => (
+              <li key={genero.id}>{genero.name}</li>
+            ))}
+          </MenuGenero>
+        </ContainerInfo>
+      </Container>
+    </>
   );
 };
 

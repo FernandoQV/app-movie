@@ -12,6 +12,7 @@ const Container = styled.div`
   max-width: 300px;
   background-color: #e5ebf0;
   cursor: pointer;
+  min-height: 495px;
   :hover img{
       opacity: .8;
   }
@@ -31,7 +32,7 @@ const MovieCard = ({poster_path,id,title,}:MovieProps): JSX.Element => {
   
   const imageURL = `https://image.tmdb.org/t/p/w300${poster_path}`;
   return (
-    <Link to={`/movie/${id}`} style={{textDecoration:0}}>
+    <Link to={`/movie/${id}`} style={{textDecoration:0,margin:0,padding:0}}>
       <Container>
         <ImageMovie
           width={300}
